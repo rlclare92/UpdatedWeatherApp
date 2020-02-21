@@ -23,6 +23,10 @@ font-size: 30px;
     list-style-type:none;
     position: relative;
     left: -10px;
+   
+}
+li{
+    margin: 0 10px;
 }
 
 .mainHeader{
