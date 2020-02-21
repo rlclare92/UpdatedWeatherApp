@@ -3,24 +3,32 @@
 body{
 display: flex;
 flex-direction: column;
-background-color: black;
-color: white;
+align-items: center;
+color: 	black;
+font-family: 'Abel', sans-serif;
+font-size: 30px;
 }
 
-.headertext{
-    font-family: 'Abel', sans-serif;
-    font-size: 50px;
-    color: whitesmoke;
+.boxContainer{
+    background-image: url('weatherBackground.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    opacity: 0.9;
+    padding: 200px;
 }
 
-.datatext{
-    font-family: 'Abel', sans-serif;
-    font-size: 30px;
-    color: whitesmoke;
+.ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type:none;
+    position: relative;
+    left: -10px;
 }
 
-form{
-    font-family: 'Abel', sans-serif;
-    font-size: 30px;
-    color: whitesmoke;
+.mainHeader{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    font-size: 100px;
 }
+

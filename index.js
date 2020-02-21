@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const getWeather = require('./lib/getWeather');
+// const getAbout = require('./lib/getWeather');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,6 +20,17 @@ app.engine('.hbs', hbs({
 app.set('view engine', '.hbs');
 
 app.get('/', (req, res) => {
+    res.render('index');
+});
+
+app.get('/about', async(req, res) => {
+    res.render('./partials/about');
+});
+
+app.get('/windSpeed', async(req, res) => {
+    res.render('./partials/windSpeed');
+});
+
     // let data = await getWeather();
     //     console.log(data);
 
@@ -31,9 +43,6 @@ app.get('/', (req, res) => {
     // let main = data.weather[0].main;
     // let description = data.weather[0].description
 
-    res.render('index');
-});
-
 app.post('/', async (req, res) => {
     let location = req.body.location;
     let countryCode = req.body.countryCode;
@@ -42,7 +51,9 @@ app.post('/', async (req, res) => {
     let data = await getWeather(location, countryCode);
     console.log(data);
 
-
+    let data2 = await getAbout(cityName, state, countryCode);
+    console.log(data2);
+    
     let temp = data.main.temp;
     let humidity = data.main.humidity;
 
